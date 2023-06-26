@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model games {
+  game_id     Int       @id @default(autoincrement())
+  title       String?   @db.VarChar(255)
+  genre       String?   @db.VarChar(255)
+  platform    String?   @db.VarChar(255)
+  cover_photo String?   @db.VarChar(255)
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+  user_id     Int?
+  review      Int?
+  comment     String?   @db.VarChar
+  users       users?    @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  user_id       Int       @id @default(autoincrement())
+  username      String?   @db.VarChar(255)
+  password      String?   @db.VarChar(255)
+  email         String?   @db.VarChar(255)
+  profile_photo String?   @default("https://www.promoview.com.br/uploads/images/unnamed%2819%29.png") @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime? @default(now()) @db.Timestamptz(6)
+  games         games[]
+}
