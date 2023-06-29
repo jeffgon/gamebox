@@ -35,7 +35,7 @@ function Home({ token, setToken, info, setInfo }) {
           console.log('Chegou as informações de registro!', res.data);
           setInfo(res.data);
           localStorage.setItem('info', JSON.stringify(res.data));
-          })
+          });
           req.catch((err) => {
             console.log('Algo deu erro no banco de dados!', err);
           });

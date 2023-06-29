@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 function GamePage({ infoGame, setInfoGame, token }) {
@@ -13,23 +12,31 @@ function GamePage({ infoGame, setInfoGame, token }) {
     }
 
     useEffect(() => {
-        function loadGame() {
-            const req =  axios.get(`${import.meta.env.VITE_API_URL}/game/${idGame}`, {
+      async function loadGame() {
+        try {
+          const storedGame = localStorage.getItem(`game_${idGame}`);
+          if (storedGame) {
+            setInfoGame(JSON.parse(storedGame));
+          } else {
+            const response = await axios.get(
+              `${import.meta.env.VITE_API_URL}/game/${idGame}`,
+              {
                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            req.then((res) => {
-              console.log('Chegou as informações de registro!', res.data);
-              setInfoGame(res.data);
-            });
-            req.catch((error) => {
-                console.log(error.message);
-            })
-        };  
-        
-        loadGame();
-      }, []);
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            console.log('Chegaram as informações do registro!', response.data);
+            setInfoGame(response.data);
+            localStorage.setItem(`game_${idGame}`, JSON.stringify(response.data));
+          }
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+  
+      loadGame();
+    }, [idGame, token]);
 
     return (
         <>
@@ -37,7 +44,7 @@ function GamePage({ infoGame, setInfoGame, token }) {
                 <Header>
                     <p onClick={backToHome}>Gamebox</p>
                     <ButtonsContainer>
-                        <ion-icon name="arrow-back-outline" onClick={backToHome}></ion-icon>
+                        <ion-icon name='arrow-back-outline' onClick={backToHome}></ion-icon>
                     </ButtonsContainer>
                 </Header>
 
@@ -47,7 +54,7 @@ function GamePage({ infoGame, setInfoGame, token }) {
                         <img src={infoGame.cover_photo} />
                     </InformationGame>
 
-                    <InformationReview>
+                    <InformationReview>                       
                         <p>Platform: {infoGame.platform}</p>
                         <p>Genre: {infoGame.genre}</p>
                         <p>Review: {infoGame.review}</p>

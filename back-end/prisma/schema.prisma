@@ -21,12 +21,11 @@ model games {
 }
 
 model users {
-  user_id       Int       @id @default(autoincrement())
-  username      String?   @db.VarChar(255)
-  password      String?   @db.VarChar(255)
-  email         String?   @db.VarChar(255)
-  profile_photo String?   @default("https://www.promoview.com.br/uploads/images/unnamed%2819%29.png") @db.VarChar(255)
-  created_at    DateTime? @default(now()) @db.Timestamptz(6)
-  updated_at    DateTime? @default(now()) @db.Timestamptz(6)
-  games         games[]
+  user_id    Int       @id @default(autoincrement())
+  username   String?   @db.VarChar(255)
+  password   String?   @db.VarChar(255)
+  email      String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at DateTime? @default(now()) @db.Timestamptz(6)
+  games      games[]
 }

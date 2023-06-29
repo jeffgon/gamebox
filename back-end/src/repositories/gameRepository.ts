@@ -38,6 +38,7 @@ async function getAllGames({ user }) {
           user_id: user,
       },
       select: {
+          game_id: true,
           title: true,
           genre: true,
           platform: true,
