@@ -19,6 +19,7 @@ function Add({
     setComment,
     token
 }) {
+    
     const navigate = useNavigate();
 
     function backToHome() {
