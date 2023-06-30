@@ -19,7 +19,6 @@ function Add({
     setComment,
     token
 }) {
-    const [coverFile, setCoverFile] = useState(null);
     const navigate = useNavigate();
 
     function backToHome() {
