@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 function Home({ token, setToken, info, setInfo }) {
+  
     const navigate = useNavigate();
 
     function backToHome() {
