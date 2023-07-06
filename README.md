@@ -37,11 +37,9 @@ O front-end é a camada que os usuários interagem diretamente, ele se comunica 
 
 #### Instalação e execução
 
-1. Abra um terminal e navegue até o diretório do projeto.
-2. Execute o comando `npm install` para instalar as dependências necessárias.
-3. Renomeie o arquivo .env.example para .env.
-4. Abra o arquivo .env e atualize as variáveis de ambiente VITE_API_URL com as informações do seu banco de dados.
-5. Após a conclusão da instalação, execute o comando `npm run dev` para iniciar o servidor de desenvolvimento.
-6. O front-end estará disponível em http://localhost:5000 no seu navegador. Você poderá interagir com o aplicativo MyWallet e gerenciar suas finanças.
-
-
+- Abra um terminal e navegue até o diretório do projeto.
+- Execute o comando `npm install` para instalar as dependências necessárias.
+- Renomeie o arquivo .env.example para .env.
+- Abra o arquivo .env e atualize as variáveis de ambiente VITE_API_URL com as informações do seu banco de dados.
+- Após a conclusão da instalação, execute o comando `npm run dev` para iniciar o servidor de desenvolvimento.
+- O front-end estará disponível em http://localhost:5000 no seu navegador.
