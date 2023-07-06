@@ -21,19 +21,25 @@ O back-end é responsável por gerenciar os dados e fornecer as funcionalidades 
 
 - No diretório do projeto, navegue até a pasta backend.
 
-- Renomeie o arquivo `.env.example` para `.env`.
+- Renomeie o arquivo .env.example para .env.
 
-- Abra o arquivo `.env` e atualize as variáveis de ambiente `DATABASE_URL` e `JWT_SECRET` com as informações do seu banco de dados e uma chave secreta para a autenticação JWT, respectivamente.
+- Abra o arquivo .env e atualize as variáveis de ambiente `DATABASE_URL`, `JWT_SECRET` e `PORT` com as informações do seu banco de dados e uma chave secreta para a autenticação JWT, respectivamente.
+
+Por exemplo:
+
+`DATABASE_URL=postgresql://seu_usuario:senha@localhost:5432/nome_do_banco_de_dados`
+`JWT_SECRET=sua_chave_secreta_aqui`
+`PORT=5000`
 
 - Execute o seguinte comando no terminal para instalar as dependências do back-end: `npm install`.
 
 - Execute o seguinte comando para executar as migrações do banco de dados e criar as tabelas necessárias: `npx prisma migrate dev`.
 
-- Após a conclusão das migrações, execute o seguinte comando para iniciar o servidor do back-end:`npm run dev`. O servidor será iniciado na porta 3000.
+- Após a conclusão das migrações, execute o seguinte comando para iniciar o servidor do back-end: npm run dev. O servidor será iniciado na porta 3000.
 
 ### Front-end
 
-O front-end é a camada que os usuários interagem diretamente, ele se comunica com o back-end para enviar e receber dados, permitindo que os usuários visualizem, adicionem entradas e saídas financeiras.
+O front-end é a camada que os usuários interagem diretamente, ele se comunica com o back-end para enviar e receber dados, permitindo que os usuários visualizem, adicionem entradas e saídas financeiras. O desenvolvimento da interface do usuário foi feito utilizando a biblioteca React, garantindo uma experiência interativa e responsiva.
 
 #### Instalação e execução
 
