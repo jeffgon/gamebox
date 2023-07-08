@@ -5,8 +5,12 @@ import signUpRoute from './routes/signUpRoute.js';
 import { connectDb, disconnectDb } from './config/database.js';
 import signInRoute from './routes/signInRoute.js';
 import gameRouter from './routes/GameRoute.js';
+import bodyParser from 'body-parser';
 
 const app = express();
+
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 app 
   .use(cors())

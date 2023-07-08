@@ -55,13 +55,11 @@ function Home({ token, setToken, info, setInfo }) {
 
     return (
       <AppContainer>
-      <Header>
-        <p onClick={backToHome}>Gamebox</p>
-        <ButtonsContainer>
-          <ion-icon name='add-outline' onClick={addNewGame}></ion-icon>
-          <ion-icon name='log-out-outline' onClick={handleLogout}></ion-icon>
-        </ButtonsContainer>
-      </Header>
+        <Header>
+            <ion-icon name='add-outline' onClick={addNewGame}></ion-icon>
+          <p onClick={backToHome}>Gamebox</p>
+            <ion-icon name='log-out-outline' onClick={handleLogout}></ion-icon>
+        </Header>
 
       <GamesContainer>
         {info.length > 0 ? (
@@ -107,17 +105,26 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   p {
       cursor: pointer;
       pointer-events: auto;
       font-family: 'Press Start 2P', cursive;
       color: white;
       font-size: 25px;
-    }
+  }
+  ion-icon {
+    margin: 35px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    pointer-events: auto;
+  }
 `;
 
 const ButtonsContainer = styled.div`
-  position: absolute;
   width: 80px;
   height: 30px;
   display: flex;  

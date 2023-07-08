@@ -47,9 +47,14 @@ function Signup(
         });
     };
 
+    function backToLogin(e) {
+      e.preventDefault();
+      navigate('/');      
+    }
+
     return (
         <AppContainer>
-            <LoginContainer>
+            <SignUpContainer>
                 <Gamebox>Gamebox</Gamebox>
                 <form onSubmit={signUpConfig}>   
                     <div>
@@ -86,8 +91,9 @@ function Signup(
                             />
                     </div>
                 <button type='submit'>Cadastrar</button>
+                <button onClick={backToLogin}>Voltar para o Login</button>
             </form>
-            </LoginContainer>
+            </SignUpContainer>
         </AppContainer>  
     );
 };
@@ -102,8 +108,9 @@ const AppContainer = styled.div`
   justify-content: center;
 `;
 
-const LoginContainer = styled.div`
+const SignUpContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center; 
   align-items: center; 
   width: 400px;
@@ -121,7 +128,6 @@ const LoginContainer = styled.div`
     outline: none;
     border-color: #6376E6;
     border-radius: 4px;
-    margin-bottom: 15px;
     margin-top: 15px;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
@@ -131,14 +137,14 @@ const LoginContainer = styled.div`
 `;
 
 const Gamebox = styled.p`
-  position: absolute;
-  top: 10%; 
   color: white;
   font-size: 25px; 
   font-family: 'Press Start 2P', cursive;
+  margin-bottom: 25px;
 `;
 
 const Input = styled.input`
+  width: 91%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;

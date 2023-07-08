@@ -26,14 +26,9 @@ function Login(
     const navigate = useNavigate();
 
     function signUpCall(e){
-        e.preventDefault();
-
-        toast.success('Preencha suas informações para se cadastrar! :)');
-
-        return setTimeout(() => {
-            navigate('/signup');
-        }, 2000);
-
+      e.preventDefault();
+      toast.success('Preencha suas informações para se cadastrar! :)');
+      navigate('/signup');     
     };
 
     function toDoLogin(e) {
@@ -66,7 +61,6 @@ function Login(
     return (
         <AppContainer>
          <LoginContainer>
-
             <Gamebox>Gamebox</Gamebox>
 
             <form onSubmit={toDoLogin}>   
@@ -88,12 +82,9 @@ function Login(
                     />
                 </div>
             <button type='submit'>Entrar</button>
+            <button onClick={signUpCall}>Cadastra-se</button>
             </form>
          </LoginContainer>
-
-         <SignupContainer>
-            <p>Não tem uma conta? <LinkPersonalizado onClick={signUpCall}>Cadastra-se</LinkPersonalizado></p>               
-         </SignupContainer>
 
         </AppContainer>  
     )
@@ -111,6 +102,7 @@ const AppContainer = styled.div`
 
 const LoginContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center; 
   align-items: center; 
   width: 400px;
@@ -128,21 +120,19 @@ const LoginContainer = styled.div`
     outline: none;
     border-color: #6376E6;
     border-radius: 4px;
-    margin-bottom: 15px;
     margin-top: 15px;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: bold;
     background-color: #6376E6;
-   }
+  }
 `;
 
 const Gamebox = styled.p`
-  position: absolute;
-  top: 23%; 
   color: white;
   font-size: 25px; 
   font-family: 'Press Start 2P', cursive;
+  margin-bottom: 25px;
 `;
 
 const Input = styled.input`
